@@ -1,16 +1,13 @@
 /*!
-Theme Name: Alex Dr.
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
+Theme Name: GameSread
+Author: Alex Kulachinsky
+Theme URI: https://github.com/sasha761/gamesread-theme
+Author URI: https://github.com/sasha761
+Description: Описание вашей темы
 Version: 1.0.0
-Tested up to: 5.4
-Requires PHP: 5.6
-License: GNU General Public License v2 or later
-License URI: LICENSE
+GitHub Theme URI: https://github.com/sasha761/gamesread-theme
+GitHub Branch: main
 */
-
 .p-single iframe,
 .p-single video {
 	max-width: 100%;
