@@ -1,0 +1,29 @@
+.p-main {
+	display: flex;
+	flex-direction: column-reverse;
+
+	.u-container {
+		width: 100%;
+	}
+
+	.c-sidebar {
+		&__title {
+	    margin-top: 12px;
+    	display: block;
+		}
+
+		.l-banner {
+			margin-top: 45px;
+		}
+
+		@include mq('phone-large') {
+			&__title {
+				margin-top: 0;
+			}
+
+			.l-banner {
+				margin-top: 15px;
+			}
+		}
+	}
+}

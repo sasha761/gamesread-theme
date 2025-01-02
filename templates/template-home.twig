@@ -1,0 +1,64 @@
+{% extends 'templates/base.twig' %}
+{% block content %}
+	<main class="p-main">
+		<div class="u-container">		
+			{% include 'templates/partial/seo-text.twig' with {'title': post.title, 'content': post.content} %}
+		</div>
+		<div class="u-container">
+			{% include 'templates/partial/news-3.twig' with {'data': news_big_block} %}
+			<div class="row u-relative">
+				<div class="col-lg-8 col-md-12">
+
+					{% for cat in categories %}						
+						{% include 'templates/partial/interest-news.twig' with {'name': cat.name, 'posts': cat.posts} %}
+
+						{% if cat.related_posts|length %}
+							<section class="l-news-row">
+								<div class="row">
+								{% for item in cat.related_posts %}
+			            <div class="col-lg-4 col-md-6 col-sm-6 col-12 u-col">
+			            	{% include 'templates/partial/news-block.twig' with {'post': item, 'small': true, 'column': true, 'width': 237, 'height': 165} %}
+			            </div>
+			          {% endfor %}
+			          </div>
+		          </section>
+		        {% endif %}
+
+		        {% if cat.highlight|length %}
+			        <section class="l-highlight">
+			        	<h3 class="u-h5">{{cat.name}}</h3>
+								
+			        	<div class="l-highlight__flex">
+			        		{% for item in cat.highlight %}
+			        			{% set permalink = function('get_the_permalink', item.ID) %}
+
+			        			{% if loop.first %}
+						        	<div class="l-highlight__article">
+						        		{% include 'templates/partial/news-block.twig' with {'post': item, 'small': true, 'row': true, 'width': 300, 'height': 160} %}
+						          </div>
+					        	{% endif %}
+									{% endfor %}
+				          <ul class="l-highlight__list">
+				          {% for item in cat.highlight %}
+				          	{% set permalink = function('get_the_permalink', item.ID) %}
+										{% if loop.index0 > 0  %}
+				          		<li>
+				          			<a href="{{permalink}}">{{ item.post_title|excerpt(8) }}</a>
+				          		</li>
+					        	{% endif %}
+					        {% endfor %}
+					        </ul>
+			        	</div>
+			        </section>
+		      	{% endif %}
+					{% endfor %}
+					
+					{% include 'templates/partial/banner.twig' with {'data': options.global_banner} %}
+				</div>
+				<div class="col-lg-4 col-md-12">
+					{% include 'templates/partial/sidebar.twig' %}
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}

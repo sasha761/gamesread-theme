@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+{% block content %}
+<main class="p-archive p-single">      
+	<section class="l-featured">
+		<div class="u-container">
+			{{ breadcrumbs }}
+			<div class="c-section-title">
+				<h1 class="u-h1">Author: {{author.display_name}}</h1>
+			</div>
+			<div class="p-single__content">
+				{{ seo_text }}
+			</div>
+		</div>
+	</section>		
+
+	<section class="l-related">
+		<div class="u-container">
+			<h3 class="l-related__title">Author</h3>
+			<div class="row">
+				{% for post in posts %}
+					<div class="col-lg-4 col-md-6 col-sm-6 col-12 u-col">
+						{% include 'partial/post-card.twig' with {'post': post} %}
+					</div>
+				{% endfor %}
+			</div>
+			{% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 2, end_size: 1}) } %}
+		</div>
+	</section>	
+</main>	
+{% endblock %}

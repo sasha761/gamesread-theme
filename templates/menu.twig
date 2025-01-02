@@ -1,0 +1,34 @@
+{% if menu %}
+	<input class="u-menu-toggle" type="checkbox">
+
+	<div class="c-hamburger d-lg-none d-flex">
+		<span class="line-1"></span>
+		<span class="line-2"></span>
+		<span class="line-3"></span>
+	</div>		
+
+	<ul class="c-menu">
+		{% for item in menu %}
+			<li class="c-menu__item {{ item.current ? 'is-active' }}">
+				<a href="{{ item.link }}">
+	        <span>{{ item.title }}</span>
+	      </a>
+
+	      {% if item.children %}
+					<div class="c-menu__container">
+						<ul class="c-menu__sub">
+							{% for item2 in item.children %}
+								<li class="c-menu__sub-item ">
+									<a href="{{ item2.link }}">{{ item2.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</div>
+				{% endif %}
+	    </li>
+		{% endfor %}
+		<li class="c-menu__item u-btn">
+			<a href="mailto:{{options.social.mail}}">Advertising</a>
+		</li>
+	</ul>
+{% endif %}

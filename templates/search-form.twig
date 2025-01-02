@@ -1,0 +1,8 @@
+<form role="search" method="get" id="searchform" class="c-search" action="{{site.link}}">
+  <input type="text" value="{{ function('get_search_query') }}" placeholder="{{ __('Search', 'news') }}" name="s" id="s" />
+  <button type="submit" class="c-search__button">
+    <svg class="is-search" width="21px" height="21px">
+      <use xlink:href="#search">
+    </svg>
+  </button>
+</form>

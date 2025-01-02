@@ -1,0 +1,41 @@
+.p-page {
+	margin-top: 30px;
+	&__title {
+    padding: 20px 0;
+    border-bottom: 1px solid #efeded;
+	}
+
+	&__image {
+		max-height: 300px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 25px;
+		img {
+
+		}
+	}
+
+	&__content {
+	}
+
+	.l-sidebar {
+    max-width: 100%;
+
+    ul {
+    	li {
+    		&.is-active {
+			    color: #202020;
+			    font-weight: 500;
+			    position: relative;
+			    text-decoration: underline;
+    		}
+    	}
+    }
+	}
+
+	@include mq('phone-large') {
+
+	}
+}

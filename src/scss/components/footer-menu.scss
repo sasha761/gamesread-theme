@@ -1,0 +1,29 @@
+.c-footer-menu {
+
+  &__list {
+
+  }
+
+   &__title {
+
+  }
+
+  &__items {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    font-size: 15px;
+  }
+
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  @include mq('phone-large') {
+    // text-align: center;
+    &__items {
+      margin-bottom: 15px;
+    }
+  }
+}

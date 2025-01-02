@@ -1,0 +1,43 @@
+<aside class="l-sidebar">
+
+	{% include 'templates/partial/banner.twig' with {'data': options.sidebar_banner} %}
+
+
+	{% if most_popular %}
+		<div class="c-most-popular">
+			<div class="c-most-popular__title">
+				<h4>Most Popular Posts</h4>
+			</div>
+			<ul class="c-most-popular__list swiper-container js-most-popular swiper">
+				<div class="swiper-wrapper">
+					{% for post in most_popular %}
+						{% set permalink = function('get_the_permalink', post.ID) %}
+
+						<li class="c-most-popular__item swiper-slide">
+							<a href="{{permalink}}" class="c-most-popular__item-img">
+								<img 
+									class="lazy"
+									src="data:image/png;base64, TEVITGhbV0IyeWs4cHlvSmFkUiouN2tDTWRuag=="
+									data-src="{{post.ID|image}}" 
+									alt="{{post.post_title}}" 
+									title="{{post.post_title}}"
+									width="120"
+									height="80" 
+								>
+							</a>
+							<div class="c-most-popular__item-info">
+								<a href="{{permalink}}">{{post.post_title|length > 47 ? post.post_title|slice(0, 47) ~ '...' : post.post_title}}</a>
+								<div class="c-most-popular__item-data">
+									<span class="c-data">{{post.post_date|date("F d, Y")}}</span>
+	              </div>
+							</div>
+						</li>
+					{% endfor %}
+				</div>
+			</ul>
+			{% if most_popular|length > 3 %}
+				{% include 'templates/partial/arrow.twig' with {'small': true} %}
+			{% endif %}
+		</div>
+	{% endif %}
+</aside>

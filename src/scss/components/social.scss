@@ -1,0 +1,62 @@
+.c-social {
+	display: flex;
+	align-items: center;
+
+	&__item {
+		margin-right: 10px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	
+	svg {
+		fill: $white;
+		transition: all 0.3s ease;
+		
+		&.is-telegram {
+      fill: #0088cc;
+    }
+
+    &.is-facebook {
+      fill: #4267B2;
+    }
+
+    &.is-whatsapp {
+      fill: #4AC959;
+    }
+
+    &.is-twitter {
+      fill: #1DA1F2;
+    }
+
+    &:hover {
+      fill: $red;
+    }
+
+		// &.is-facebook {
+		// 	fill: #4267b2;
+		// }
+
+		// &.is-twitter {
+		// 	fill: #1da1f2;
+		// }
+
+		// &.is-insta {
+		// 	fill: #e95950;
+		// 	// background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+		// }
+
+		// &.is-youtube {
+		// 	fill: #FF0000;
+		// }
+	}
+
+	a {
+		margin-right: 30px;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}

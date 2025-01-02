@@ -1,0 +1,8 @@
+{% if data.img and data.link %}
+	<section class="c-banner">
+		<a href="{{ data.link }}">
+			<img src="{{ data.img }}" alt="{{ data.text }}">
+			<div class="c-banner__text">{{ data.text }}</div>
+		</a>
+	</section>
+{% endif %}

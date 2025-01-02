@@ -1,0 +1,46 @@
+<!doctype html>
+<html {{ site.language_attributes }}>
+<head>
+  <meta charset="{{ site.charset }}"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="{{ site.theme.link }}/favicon.ico">
+
+  <link rel="preload" href="{{ site.theme.link }}/dist/fonts/Montserrat-Medium.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  <link rel="preload" href="{{ site.theme.link }}/dist/fonts/Montserrat-Regular.woff" as="font" type="font/woff" crossorigin="anonymous"/>
+  {% if fn('is_single') %}
+    <link rel="preload" href="{{ site.theme.link }}/src/fonts/star/star.woff2" as="font" type="font/woff" crossorigin="anonymous"/>
+
+    <style>
+      @font-face {
+        font-family: 'star';
+        font-display: swap;
+        src: url('{{theme.link}}/src/fonts/star/star.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+  {% endif %}
+
+
+  {{ function('wp_head') }}
+
+  
+</head>
+<body class="{{body_class}}" data-template="base.twig">
+
+  {% include 'templates/partial/icons.twig' %}
+  {% include 'templates/header.twig' %}
+  {% include 'templates/partial/modals.twig' %}
+  <div class="wrapper">
+
+    {% block content %}
+
+    {% endblock %}
+    
+    {% include 'templates/footer.twig' %}
+  </div>
+
+  {{ function('wp_footer') }}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<section class="l-news-last">
+  <h5 class="u-h5">{{ name ? name : 'Interesting news' }}</h5>
+  <div class="js-interest-news swiper">
+    <div class="swiper-wrapper">
+      {% for items in posts %}
+        <div class="col-lg-4 col-md-4 col-sm-6 col-6 u-col swiper-slide">
+          {% include 'templates/partial/news-block.twig' with {'post': items, 'small': true, 'column': true, 'width': 245, 'height': 165} %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% include 'templates/partial/arrow.twig' with {'small': true, 'length': false} %}
+</section>

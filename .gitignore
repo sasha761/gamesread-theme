@@ -1,0 +1,15 @@
+.idea/
+.run/
+info.txt
+.tmb
+./package-lock.json
+package-lock.json
+node_modules/
+.parcel-cache/
+composer.lock
+/languages
+/vendor
+# Dotenv
+.env
+.env.*
+!.env.example

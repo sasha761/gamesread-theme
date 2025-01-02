@@ -1,0 +1,43 @@
+{% extends 'templates/base.twig' %}
+
+{% block content %}
+  <main class="p-archive">      
+    <section class="l-featured">
+      <div class="u-container">
+        {{ breadcrumbs }}
+        <div class="c-section-title">
+          <h1>{{title}}</h1>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="u-container">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-12">
+            <div class="p-archive__content">
+              
+              {% if posts|length %}
+                <div class="row">
+                  {% for post in posts %}
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12 u-col">
+                      {% include 'partial/post-card.twig' with {'post': post} %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% else %}
+                <div class="l-content__nofound">
+                  <h2>Posts not found</h2>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-12">
+            {% include 'partial/sidebar.twig' with {'most_popular': most_popular} %}
+          </div>
+        </div>
+        {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 2, end_size: 1}) } %}
+      </div>
+    </section>
+  </main>
+{% endblock %}

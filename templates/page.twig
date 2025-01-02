@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main class="p-page is-{{post.post_type}}" id="post-{{post.ID}}">
+		<div class="u-container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-12 u-col">
+					<div class="l-sidebar">
+						<ul>
+							{% for page in pages %}
+								{% set permalink = function('get_the_permalink', page.ID) %}
+								<li class="{% if query_object.ID == page.ID %}is-active {% endif %}"><a href="{{permalink}}">{{page.post_title}}</a></li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-9 col-12 u-col">
+					<div class="p-page__content l-content">
+						<h1 class="p-page__title u-h2">{{post.title}}</h1>
+						<div>{{post.content}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}

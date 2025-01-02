@@ -1,0 +1,49 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <main class="p-search">
+    <div class="u-container">
+      <div class="p-search__head">
+        <div class="row mb-5">
+          <div class="col-lg-8 col-md-12">
+            {% include 'templates/search-form.twig' %}
+          </div>
+          <div class="col-lg-4 col-md-12 d-sm-flex justify-content-end align-items-center d-none">
+            {% include 'templates/partial/social.twig' %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 col-md-12">   
+            {% if (posts|length) %} 
+              <h1 class="u-h2 c-search-resault"><span>{{title}}</span></h1>
+              {# <pre>{{ dump(posts) }}</pre> #}
+              {% for post in posts %}
+                <article id="post-{{ post.ID }}" class="c-post">
+                  <div class="c-post__row">
+                    <div class="c-post__date">
+                      <span class="c-date">{{ post.date }}</span>
+                      <span class="c-time">{{ post.time }}</span>
+                    </div>
+                    <h2 class="c-post__title">
+                      <a href="{{ post.link }}" rel="bookmark">{{ post.title }}</a>
+                    </h2>
+                  </div>
+                </article>
+              {% endfor %} 
+            {% endif %}
+            {% if (posts|length == 0) %}
+              <div class="p-search__nofound">
+                <h2>{{ __('Found nothing', 'news') }}</h2>
+              </div>
+            {% endif %}
+
+            {% include 'partial/pagination.twig' with { pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+          </div>
+          <div class="col-lg-4 col-md-12">
+            {% include 'templates/partial/sidebar.twig' %}
+          </div>      
+        </div>    
+      </div>
+    </div>
+  </main>
+{% endblock %}

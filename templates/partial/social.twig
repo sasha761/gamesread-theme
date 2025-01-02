@@ -1,0 +1,54 @@
+{# {% if options.social %}
+  <div class="c-social">
+    {% if options.social.facebook %}
+      <a class="c-social__item" href="{{ options.social.facebook }}">
+        <svg width="28px" height="28px" class="is-facebook">
+          <use xlink:href="#facebook"></use>
+        </svg>
+      </a>
+    {% endif %}
+    {% if options.social.instagram %}
+      <a class="c-social__item" href="{{ options.social.instagram }}">
+        <svg width="28px" height="28px" class="is-insta">
+          <use xlink:href="#instagram"></use>
+        </svg>
+      </a>
+    {% endif %}
+    {% if options.social.youtube %}
+      <a class="c-social__item" href="{{ options.social.youtube }}">
+        <svg width="28px" height="28px" class="is-youtube">
+          <use xlink:href="#youtube"></use>
+        </svg>
+      </a>
+    {% endif %}
+    {% if options.social.telegram %}
+      <a class="c-social__item" href="{{ options.social.telegram }}">
+        <svg width="28px" height="28px" class="is-telegram">
+          <use xlink:href="#telegram"></use>
+        </svg>
+      </a>
+    {% endif %}
+  </div>
+{% endif %} #}
+<div class="c-social">
+  <a class="c-social__item" href="https://www.facebook.com/sharer/sharer.php?u={{ post.link|e('url') }}&t={{ post.title|e('url') }}" title="Share on Facebook" target="_blank" rel="nofollow">
+    <svg width="15px" height="15px" class="is-facebook">
+      <use xlink:href="#facebook">
+    </svg>
+  </a>
+  <a class="c-social__item" href="https://t.me/share/url?url={{ post.link|e('url') }}&text={{ post.title|e('url') }}" title="Share on Telegram" rel="nofollow">
+    <svg width="18px" height="18px" class="is-telegram">
+      <use xlink:href="#telegram">
+    </svg>
+  </a>
+  <a class="c-social__item" href="whatsapp://send?text={{ post.title|e('url') }}" data-action="share/whatsapp/share" title="Share on Whatsup" rel="nofollow">
+    <svg width="18px" height="18px" class="is-whatsapp">
+      <use xlink:href="#whatsapp">
+    </svg>
+  </a>
+  <a class="c-social__item" href="https://twitter.com/intent/tweet?source={{ post.link|e('url') }}&text={{ post.title|e('url') }}:{{ post.link|e('url') }}" target="_blank" title="Tweet" rel="nofollow">
+    <svg width="15px" height="15px" class="is-twitter">
+      <use xlink:href="#twitter">
+    </svg>
+  </a>
+</div>

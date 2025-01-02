@@ -1,0 +1,19 @@
+{% if options.social %}
+  <div class="c-social">
+    {% if options.social.facebook %}
+      <a href="{{ options.social.facebook }}">
+        <img src="{{theme.link}}/dist/img/Facebook.svg" alt="">
+      </a>
+    {% endif %}
+    {% if options.social.instagram %}
+      <a href="{{ options.social.instagram }}">
+        <img src="{{theme.link}}/dist/img/Inst.svg" alt="">
+      </a>
+    {% endif %}
+    {% if options.social.whatsapp %}
+      <a href="{{ options.social.whatsapp }}">
+        <img src="{{theme.link}}/dist/img/Whatsapp.svg" alt="">
+      </a>
+    {% endif %}
+  </div>
+{% endif %}

@@ -1,0 +1,36 @@
+{% set permalink = function('get_the_permalink', post.ID) %}
+{% set category  = function('get_the_category', post.ID) %}
+
+
+<div class="c-news
+	{% if column %} is-column {% endif %} 
+	{% if row %} is-row {% endif %} 
+	{% if big %} is-big {% endif %}
+	{% if medium %} is-medium {% endif %}
+	{% if small %} is-small {% endif %} 
+	{% if class %} {{class}} {% endif %}	
+">
+
+  <a href="{{ permalink }}" class="c-news__img">
+    <img 
+    	class="lazy"
+    	src="data:image/png;base64, TEVITGhbV0IyeWs4cHlvSmFkUiouN2tDTWRuag=="
+    	data-src="{{post.ID|image}}" 
+    	alt="{{post.post_title}}" 
+    	title="{{post.post_title}}" 
+    	width="{{ width ? width : '250' }}" 
+    	height="{{ height ? height : '170' }}"
+  	>
+  </a>
+
+  <div class="c-news__content">
+    <span class="c-news__content-category">{{ category[0].name }}</span>
+    <h2 class="u-h3">{{ post.post_title|excerpt(5) }}</h2>
+
+    {% if post.post_excerpt %}
+	    <p>{{ post.post_excerpt|length > 50 ? post.post_excerpt|slice(0, 63) ~ '…' }}</p>
+	  {% endif %}
+
+    <span class="c-news__content-date">{{ post.post_date|date("m/d/Y") }}</span>
+  </div>
+</div>

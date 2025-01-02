@@ -1,0 +1,31 @@
+{
+  "name": "gamesread/gamesread",
+  "type": "wordpress-theme",
+  "description": "Timber/Twig based wp theme",
+  "keywords": [
+    "WordPress",
+    "Themes",
+    "Timber",
+    "Twig"
+  ],
+  "homepage": "https://gamesread.com/",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+        "name": "Contributors",
+        "homepage": "https://gamesread.com/"
+    }
+  ],
+  "require": {
+    "php": ">=7.4||^8.0",
+    "twig/twig": "^3.0",
+    "timber/timber": "2.0.0",
+    "phpoffice/phpspreadsheet": "^2.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": false,
+      "composer/installers": true
+    }
+  }
+}

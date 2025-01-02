@@ -1,0 +1,26 @@
+{% extends 'templates/base.twig' %}
+{% block content %}
+	<main class="p-about-us">
+		<section class="l-text">
+			{# {{ dump(post) }} #}
+			<div class="u-container">
+				<h1 class="u-h2">{{ post.post_title }}</h1>
+				{{ post.post_content }}
+			</div>
+		</section>
+
+		{% if quote %}
+			<section class="l-quote">
+				<div class="u-container">
+					<h2 class="u-h1">
+						{{ quote }}
+					</h2>
+				</div>
+			</section>
+		{% endif %}
+
+		<div class="u-container">
+			{% include 'templates/partial/interest-news.twig' with {'posts': options.interest_news} %}
+		</div>		
+	</main>
+{% endblock %}

@@ -1,0 +1,14 @@
+<header class="l-header">
+	<div class="u-container ">
+		<div class="l-header__flex u-relative">
+			<a class="c-logo" href="{{site.url}}" rel="home">
+				<img src="{{ options.logo_header }}" alt="logo" title="logo" width="75" height="50">
+			</a>
+
+			<div class="l-header__menu">
+				{% include 'templates/menu.twig' with {'menu': main_menu.get_items} %}
+				{# {% include 'templates/search-form.twig' %} #}
+			</div>
+		</div>
+	</div>
+</header>

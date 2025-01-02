@@ -1,0 +1,29 @@
+<section class="l-news is-3">
+	<div class="row d-none d-md-flex">
+		<div class="col-lg-8 col-md-8">
+			{% for items in data %}
+				{% if loop.first %}
+					{% include 'templates/partial/news-block.twig' with {'post': items, 'big': true, 'width': 770, 'height': 410} %}
+				{% endif %}
+			{% endfor %}
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-12">
+			{% for items in data %}
+				{% if loop.index0 > 0  %}
+					{% include 'templates/partial/news-block.twig' with {'post': items, 'medium': true, 'class': 'u-col', 'width': 370, 'height': 201} %}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+
+	<div class="d-block d-md-none">
+		<div class="js-banner-slider swiper">
+			<div class="swiper-wrapper">
+				{% for items in data %}
+					{% include 'templates/partial/news-block.twig' with {'post': items, 'medium': true, 'class': 'swiper-slide', 'width': 400, 'height': 213} %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	
+</section>

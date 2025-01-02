@@ -1,0 +1,71 @@
+.u-btn {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+  font-size: 16px;
+  line-height: 1.2;
+  font-family: Montserrat;
+	font-style: normal;
+	font-weight: 400;
+	text-transform: uppercase;
+	text-align: center;
+  padding: 14px 22px;
+    
+	&.is-medium {
+		padding: 15px 30px;
+	}
+
+	&.is-small {
+    padding: 12px 18px;
+		text-transform: none;
+		font-size: 14px;
+	}
+
+	&.is-black {
+		color: $white;
+		background: $black;
+		border: 1px solid $black;
+	}
+
+	&.is-yellow {
+		color: $white;
+		background-color: #f09948;
+		border: 1px solid #f09948;
+	}
+
+	&.is-orange {
+		color: $white;
+		background-color: $orange;
+		border: 1px solid $orange;
+	}
+
+	&.is-red {
+		color: $white;
+		background-color: $red;
+		border: 1px solid $red;
+	}
+
+
+	&.is-orange-border {
+		color: $orange;
+		border: 1px solid $orange;
+	}
+
+	&.is-grey-border {
+		color: $black;
+		border: 1px solid $light-grey;
+	}
+
+	&.is-border-radius {
+		border-radius: 5px;
+	}
+
+	@include mq('phone-large') {
+		padding: 8px 16px;
+		font-size: 14px;
+
+		&.is-medium {
+			padding: 10px 20px;
+		}
+	}
+}

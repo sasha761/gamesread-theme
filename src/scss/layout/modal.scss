@@ -1,0 +1,62 @@
+.l-modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  // background-color: rgba(0,0,0,0.7);
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+
+  &.is-active {
+		opacity: 1;
+		visibility: visible; 	
+  }
+
+  .c-modal {
+	  opacity: 0;
+	  visibility: hidden;
+	  transition: all 0.2s linear;
+	  // z-index: 90;  
+	  
+	  
+	  &.is-active {
+		  opacity: 1;
+		  visibility: visible;	  	
+	  }	
+
+	  &__mobile {
+	  	position: absolute;
+	  	top: 120px;
+	  	padding: 50px 30px;
+	  	left: 0;
+	  	right: 0;
+	  	bottom: 0;
+	  	background-color: $black;
+	  	
+	  	.c-menu {
+	  		display: block!important;
+	  		
+	  		li {
+	  			display: block;
+	  			margin-bottom: 60px;
+	  			color: $grey;
+	  			font-weight: 300;
+					font-size: 24px;
+					margin-right: 0;
+	  			
+	  			&.is-active {
+	  				color: $white;
+	  				font-weight: bold;
+	  			}
+	  		}
+	  	}
+
+	  	.c-search {
+	  		display: none;
+	  	}
+	  }
+  }
+}

@@ -1,0 +1,22 @@
+.c-mobile-menu {
+  padding: 10px 5px 25px;
+  position: absolute;
+  z-index: 10;
+  height: calc(100% - 50px);
+  overflow: auto;
+  left: -100%;
+  width: 100%;
+  // top: 55px;
+
+  &__close {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+  }
+
+
+  &.active {
+    left: 0;
+  }
+}

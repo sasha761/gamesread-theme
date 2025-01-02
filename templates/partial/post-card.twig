@@ -1,0 +1,32 @@
+{% set permalink   = function('get_the_permalink', post.ID) %}
+{% set excerptWords = (rectangle ? 100 : 80) %}
+
+<div class="c-post-card {{ rectangle ? 'is-rectangle' : '' }}">
+	<div class="c-post-card__image">
+		<a href="{{permalink}}">
+			<img 
+	    	class="lazy"
+	    	src="data:image/png;base64, TEVITGhbV0IyeWs4cHlvSmFkUiouN2tDTWRuag=="
+	    	data-src="{{post.ID|image}}" 
+	    	alt="{{post.post_title}}" 
+	    	title="{{post.post_title}}" 
+	    	width="{{ width ? width : '370' }}" 
+	    	height="{{ height ? height : '255' }}"
+	  	>
+		</a>
+	</div>
+
+	<div class="c-post-card__content">
+		<h4 class="c-post-card__title">
+			<a href="{{permalink}}">{{post.post_title|length > 47 ? post.post_title|slice(0, 47) ~ '...' : post.post_title}}</a>
+		</h4>
+		{% if post.post_excerpt %}
+      <p>{{ post.post_excerpt|striptags|length > excerptWords ? post.post_excerpt|striptags|slice(0, excerptWords) ~ '...' : post.post_excerpt|striptags}}</p>
+    {% else %}
+      <p>{{ post.post_content|striptags|length > excerptWords ? post.post_content|striptags|slice(0, excerptWords) ~ '...' : post.post_content|striptags}}</p>
+    {% endif %}
+	</div>
+	<div class="c-post-card__info">
+  	<span class="c-data">{{post.post_date|date("F d, Y")}}</span>
+  </div>
+</div>

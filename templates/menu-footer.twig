@@ -1,0 +1,26 @@
+{% if menu %}
+	{% set column = 3 %}
+	{% if menu|length == 2 %}
+		{% set column = 6 %}
+	{% elseif menu|length == 3 %}
+		{% set column = 4 %}
+	{% elseif menu|length == 4 %}
+		{% set column = 3 %}
+	{% elseif menu|length == 5 %}
+		{% set column = 2 %}
+	{% endif %}
+	<div class="row c-footer-menu">
+		{% for item in menu %}
+			<div class="col-lg-{{column}} col-md-6 col-6 u-col">
+				<h4 class="c-footer-menu__title">{{ item.title }}</h4>
+				<ul class="c-footer-menu__list">
+		      {% if item.children %}
+		        {% for listItem in item.children %}
+		          <li class="c-footer-menu__items"><a href="{{ listItem.url }}">{{ listItem }}</a></li>
+		        {% endfor %}
+		      {% endif %}
+		    </ul>
+			</div>
+		{% endfor %}
+	</div>
+{% endif %}

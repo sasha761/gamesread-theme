@@ -1,0 +1,165 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+{# {% set category = function('get_the_category') %} #}
+{% set thumbnail = function('get_the_post_thumbnail_url', data.ID, 'full') %}
+
+{# {% if viewCount %}
+<script type="application/ld+json">
+  {
+    "@context":"https://schema.org/",
+    "@type":"Product",
+    "name":"{{ post.title }}",
+    "image":"{{post.ID|image}}",
+    "aggregateRating":
+    {
+      "@type":"AggregateRating",
+      "ratingValue":5,
+      "reviewCount":{{viewCount}}
+    }
+  }
+</script>
+{% endif %} #}
+  <main class="p-single">
+    <div class="u-container">
+        
+      <h1 class="u-h1"> {{ post.title }}</h1>
+      
+      <p class="u-h4 d-none d-sm-block"> {{ post.post_excerpt }}</p>
+      {{ breadcrumbs }}
+      <div class="p-single__heading">
+        <div class="p-single__heading-functions">
+          <span class="c-date">{{ post.date }}</span>
+
+          <div class="c-reading">
+            <svg width="16px" height="16px">
+              <use xlink:href="#clock"></use>
+            </svg>
+            <span>{{post.ID|reading}}</span>
+          </div>
+
+          <div class="c-views">
+            <svg width="12px" height="17px">
+              <use xlink:href="#flame"></use>
+            </svg>
+            <span>{{viewCount}}</span>
+          </div>
+
+          {# <div class="c-rating">
+            <div class="star-rating" role="img">
+              <span style="width:{{(rating / 5) * 100}}%">
+              </span>
+            </div>
+          </div> #}
+
+          <p class="u-author">By <a href="{{ author_link }}">{{ author_name }}</a></p>
+          
+        </div>
+        {% include 'templates/partial/social.twig' with {'share': 'share'} %}
+      </div>
+
+      {% if thumbnail %}
+        <div class="p-single__image">
+          <span class="p-single__image-category">{{ category_list[0].name }}</span>
+          <img class="d-block" src="{{ thumbnail }}"/>
+        </div>
+      {% endif %}
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="p-single__content">
+            {{ post.content }}
+
+            {% if file or category_agreed %}
+              <div class="c-download js-download">
+                <div class="c-download__text ">
+                  <img src="<?php echo get_template_directory_uri(); ?>/src/img/file.svg" alt="loading">
+                  <span>Download File</span>
+                </div>
+                <div class="c-download__timer">
+                  <img src="<?php echo get_template_directory_uri(); ?>/src/img/loading.svg" alt="loading" class="is-loading">
+                  <span>The download link will be available via</span>
+                  <span class="js-download-time">30</span>
+                </div>
+                {% if file %}
+                  <a href="{{ file.url }}" download class="c-download__link js-download-file">{{ file.filename }}</a>
+                {% else %}
+                  <p class="c-download__link">File not available</p>
+                {% endif %}
+              </div> 
+            {% endif %}
+
+          </div>
+          <ul class="c-tags">
+            {% for term in post.terms('tags') %}
+              <li><a href="{{term.link}}">{{term.name}}</a></li>
+            {% endfor %}
+          </ul>
+          <ul class="c-tags">
+            {% for category in category_list %}
+              {% set permalink = function('get_category_link', category.term_id) %}
+              <li><a href="{{permalink}}">{{category.name}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          {% include 'templates/partial/sidebar.twig' %}
+        </div>
+      </div>
+
+
+      <section class="l-comments">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="c-comments comment-respond" id="respond">
+              {# <h2 class="u-h4">Отзывов: {{fn('comments_number',__('No Responses to', 'timber-foundation'), __('One Response to', 'timber-foundation'), __('% Responses to', 'timber-foundation')) }} #}
+              {# </h2> #}
+              <div class="c-comments__box">
+                {% for comment in comments %}
+                  {% include 'comment.twig' %}
+                {% endfor %}
+              </div>
+              {% include "comment-form.twig" %}
+            </div>
+          </div>
+        </div>
+      </section>
+          
+      <div class="l-related">
+        <h3 class="l-related__title">You May Also Like</h3>
+        <div class="row">
+          {% for item in related|slice(0, 6) %}
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 u-col">
+              {% include 'partial/post-card.twig' with {'post': item} %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {   
+      if(document.querySelector('js-download')) {
+        document.querySelector('.js-download .c-download__text').addEventListener('click', function() {
+          this.style.display = 'none';
+
+          var downloadContainer = document.querySelector('.js-download');
+          downloadContainer.querySelector('.c-download__timer').style.display = 'block';
+
+          var sec = 59;
+          var myVar = setInterval(function() {
+              if (sec > 0) {
+                  sec--;
+                  document.querySelector('.js-download-time').textContent = sec;
+              } else {
+                  clearInterval(myVar);
+                  downloadContainer.querySelector('.c-download__timer').style.display = 'none';
+                  document.querySelector('.c-download__link').style.display = 'block';
+              }
+          }, 1000);
+        });
+      }
+    });
+  </script>
+{% endblock %}

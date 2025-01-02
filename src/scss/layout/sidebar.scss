@@ -1,0 +1,27 @@
+.l-sidebar {
+	margin-top: 0px;
+  width: 100%;
+  padding: 0 15px;
+  position: sticky;
+  top: 20px;
+
+  .c-banner {
+    margin-bottom: 20px;
+    margin-top: 0;
+
+    @include mq('phone-large') {
+      &__text {
+        font-size: 50px;
+      }
+    }
+  }
+
+
+  @include mq('tablet') {
+    margin-top: 30px;
+    max-width: 100%;
+    position: relative;
+    top: 0;
+    padding: 15px 0px;
+  }
+}

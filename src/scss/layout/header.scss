@@ -1,0 +1,159 @@
+.l-header {
+	position: relative;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #DFDFDF;
+	
+	&__flex {
+    width: 100%;
+		display: flex;
+		text-align: center;
+		justify-content: space-between;
+		padding: 15px 0;
+	}
+
+	&__menu {
+		display: flex;
+		align-items: center;
+	}
+
+	.c-logo {
+		text-align: left;
+    margin-right: 50px;
+    
+    img {
+    	max-height: 100%;
+    }
+	}
+
+	.c-search {
+		height: auto;
+		border: none;
+    position: relative;
+		input {
+			// display: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      width: 0%;
+      opacity: 0;
+      transition: all 0.3s linear;
+		}
+
+		&__bottom {
+			position: relative;
+			top: auto;
+			right: auto;
+			transform: none;
+      outline: none;
+		}
+
+    .is-search {
+      fill: $red;
+    }
+
+    &.is-open {
+      input {
+        width: 240px;
+        background-color: $white;
+        opacity: 1;
+      }
+
+      &__button {
+        z-index: 2;
+      }
+
+      .is-search {
+        fill: $red;
+      }
+    }
+	}
+
+	.u-menu-toggle {
+		display: none;
+	}
+
+	.c-menu {
+		flex-shrink: 0;
+		&__item {
+			font-family: Montserrat;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 1.2;
+			text-transform: uppercase;
+			color: #333333;
+			padding: 12px 16px;
+			margin-bottom: 0;
+		}
+	}
+
+	@include mq('desktop') {
+		.c-logo {
+	    margin-right: 30px;
+		}
+	}
+
+	@include mq('tablet-medium') {
+		.c-menu {
+			flex-direction: column;
+			background-color: $black;
+	    border-radius: 3px;
+	    color: $white;
+	    height: 100%;
+	    left: 0;
+	    max-height: 1000px;
+	    opacity: 1;
+	    padding: 0 0 50px;
+	    position: fixed;
+	    text-align: center;
+      justify-content: center;
+	    top: -1000px;
+	    transition: all .3s ease-in-out;
+	    visibility: visible;
+	    width: 100vw;
+	    z-index: 9;
+
+	    &__item {
+	    	color: $white;
+	    	padding: 10px;
+	    	margin-bottom: 10px;
+	    }
+		}
+
+		.u-menu-toggle {
+			display: block;
+			opacity: 0;
+	    width: 35px;
+	    height: 35px;
+	    position: absolute;
+	    right: 15px;
+	    z-index: 11;
+
+	    &:checked {
+	    	&~.c-menu {
+	    		top: 0;
+	    	}
+	    	&~.c-hamburger {
+	    		z-index: 10;
+
+	    		span {
+	    			&.line-1 {
+				    	top: 50%;
+    					transform: translateY(-50%) rotate(45deg);
+	    			}
+	    			&.line-2 {
+	    				opacity: 0;
+	    				visibility: hidden;
+	    			}
+	    			&.line-3 {
+	    				top: 50%;
+    					transform: translateY(-50%) rotate(-45deg);
+    					bottom: auto;
+	    			}
+	    		}
+	    	}
+	    }
+		}
+	}
+}

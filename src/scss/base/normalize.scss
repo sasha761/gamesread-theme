@@ -1,0 +1,360 @@
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+main, summary, div {
+  display: block;
+  box-sizing: border-box;
+}
+ol, ul {
+  list-style: none;
+  padding: 0; 
+  li {
+  	margin-bottom: 10px;
+  }
+}
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  text-decoration: none;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  border-radius: 0;
+  text-transform: none;
+}
+button,
+[type="reset"],
+[type="submit"],
+[type="button"] {
+  -webkit-appearance: button;
+}
+textarea {
+  overflow: auto;
+  resize: vertical;
+}
+
+select {
+  word-wrap: normal;
+}
+
+/*  ----  */
+.is-overflow-hidden {
+  overflow: hidden;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	// overflow-x: hidden;
+
+
+	main {
+		flex: 1 0 auto;
+		// background: #FCFCFC;
+	}
+	footer {
+		flex: 0 0 auto;
+	}
+}
+.text-center {
+	text-align: center;
+}
+// main {
+// }
+.post, .page {
+	margin-bottom: 0;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	padding: 0;
+	box-sizing: border-box;
+  color: #666;
+  border: 0;
+  resize: none;
+  outline: none;
+}
+input[type="range"] {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  max-width: 150px;
+  height: 4px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 4px;
+  padding: 0;
+  
+  &:hover {
+    opacity: 1;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 12px; /* Set a specific slider handle width */
+    height: 12px; /* Slider handle height */
+    background: $primary; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 50%;
+  }
+
+  &::-moz-range-thumb {
+    width: 12px; 
+    height: 12px; 
+    background: $primary; 
+    cursor: pointer; 
+  }
+
+}
+picture {
+  display: block;
+}
+input[type="submit"],
+button,
+button:focus {
+	cursor: pointer;
+	outline: none;
+}
+
+body {
+	height: 100%;
+	position: relative;
+	box-sizing: border-box;
+	overflow-x: hidden;
+	margin: 0;
+}
+
+html {
+	height: 100%;
+	box-sizing: border-box;
+	// overflow-x: hidden;
+}
+
+@media (max-width: 576px) {
+	html, body {
+		overflow-x: hidden;
+	}
+}
+
+
+hr {
+	width: 100%;
+	height: 1px;
+	background: #DFDFDF;
+	opacity: 0.8;
+	display: block;
+	margin: 10px 0;
+}
+p, div, a {
+	outline: none;
+}
+
+button, input {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	outline: none;
+	background-color: transparent;
+	border: none;
+}
+
+input[type="radio"] {
+	height: 16px;
+	width: 16px;
+	border-radius: 100%;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	transition: all 0.2s ease;
+	cursor: pointer;
+	box-sizing: border-box;
+	flex-shrink: 0;
+
+	&:checked {
+		border: 5px solid #2980b9;
+	}
+}
+
+input[type="checkbox"] {
+	height: 22px;
+	width: 22px;
+	background: #FFFFFF;
+	padding: 0;
+	border: 1px solid #EFEFEF;
+	box-sizing: border-box;
+	border-radius: 4px;
+	// transition: all 0.2s ease;
+	cursor: pointer;
+	box-sizing: border-box;
+	flex-shrink: 0;
+
+	&:checked {
+		background-color: white;
+		background-image: url(../img/checked.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 80%;
+	}
+}
+
+
+input {
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: inherit;
+}
+p {
+	color: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+hr {
+	border: 0.5px solid #f1f1f1;
+}
+
+mark {
+  font-weight: 500;
+  background-color: transparent;
+}
+
+pre {
+	direction: ltr!important;
+	text-align: left!important;
+}
+table {
+  text-align: left;
+  position: relative;
+  border-collapse: collapse; 
+  background-color: #f6f6f6;
+}/* Spacing */
+td, th {
+  border: 1px solid #999;
+  padding: 20px;
+}
+th {
+  background: brown;
+  color: white;
+  border-radius: 0;
+  position: sticky;
+  top: 0;
+  padding: 10px;
+}
+
+tfoot > tr  {
+  background: black;
+  color: white;
+}
+// tbody > tr:hover {
+//   background-color: #ffc107;
+// }
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}

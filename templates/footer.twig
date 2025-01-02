@@ -1,0 +1,21 @@
+<footer class="l-footer">
+  <div class="u-container">
+    <div class="row align-items-center">
+      
+      <div class="col-lg-9 col-md-9 u-col">
+        {% include 'templates/menu-footer.twig'with {'menu': footer_menu.get_items} %}
+      </div>
+
+      <div class="col-lg-3 col-md-3 u-col">
+        <div class="c-logo">
+          <a href="{{site.url}}" rel="home">
+            <img src="{{ options.logo_footer }}" alt="logo black" title="logo black" width="160" height="31">
+          </a>
+        </div>
+        <div class="c-copyright">Copyright © {{ 'now' | date('Y') }} </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{{ function('wp_footer') }}

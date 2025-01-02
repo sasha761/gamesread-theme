@@ -1,0 +1,11 @@
+.c-logo {
+  display: inline-block;
+  // max-width: 160px;
+  max-width: 90px;
+  max-height: 50px;
+  flex-shrink: 0;
+
+  @include mq('desktop') {
+    max-width: 130px;
+  }
+}

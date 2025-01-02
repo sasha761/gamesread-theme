@@ -1,0 +1,49 @@
+.l-footer {
+	// background: #1D1D1D;
+	background-color: black;
+	border-radius: 3px;
+	color: white;
+	color: $white;
+	padding: 75px 0;
+	margin-top: 50px;
+
+	.c-logo {
+		margin-bottom: 20px;
+    max-width: 160px;
+	}
+
+
+
+	&__description {
+		.u-h3 {
+			margin-bottom: 10px;
+		}
+		p {
+			font-size: 12px;
+			line-height: 1.1;	
+		}
+	}
+
+	@include mq('tablet-medium') {
+		.c-logo {
+			margin-bottom: 30px;
+		}
+
+		&__description {
+			margin-bottom: 30px;
+		}
+	}
+
+	@include mq('phone-large') {
+		padding: 35px 0 25px;
+
+		.c-logo {
+			display: block;
+			margin: 20px auto 30px;
+		}
+
+		.c-copyright {
+			text-align: center;
+		}
+	}
+}
