@@ -15,8 +15,6 @@ img.lazy {
 	}
 }
 
-
-
 .l-featured {
 	margin-bottom: 30px;
 }
@@ -57,20 +55,19 @@ img.lazy {
 		overflow: hidden;
 		img {
 			min-height: 100%;
-			// max-width: none;
 			min-width: 100%;
 			background-color: #ddd;
 		}
 	}
+
 	&__title {
 		font-size: 22px;
 	}
+	
 	&__info {
 		color: #127eba;
 		font-size: 16px;
 		line-height: 1.4;
-		// letter-spacing: .2em;
-  //   text-transform: uppercase;
 	}
 
 	@include mq('tablet') {
@@ -100,20 +97,15 @@ img.lazy {
 		border-bottom: 1px solid #eee;
 	}
 
-
 	&__item {
 		display: flex!important;
 		align-items: flex-start;
 		border-bottom: 1px solid #e5e5e5;
     padding-bottom: 12px;
-    // margin-bottom: 12px;
     height: auto;
     max-height: 100px;
 		overflow: hidden;
 
-    // &:last-child {
-    // 	border-bottom: 0;
-    // }
 
     &-img {
     	max-width: 120px;
