@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( '_S_VERSION' ) ) {
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.4' );
 }
 
 require_once(__DIR__ . '/vendor/autoload.php');
